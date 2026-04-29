@@ -1,0 +1,39 @@
+---
+const services = [
+  {
+    title: 'Musculación',
+    desc: 'Equipamiento de primer nivel para fuerza e hipertrofia.',
+    img: '/a.png'
+  },
+  {
+    title: 'Clases',
+    desc: 'Entrenamiento funcional, HIIT y motivación grupal.',
+    img: '/b.png'
+  },
+  {
+    title: 'Asesoramiento',
+    desc: 'Guía profesional para alcanzar tus metas rápido.',
+    img: '/c.png'
+  }
+];
+---
+<section id="servicios" class="py-32 bg-accent/30">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="title-impact text-5xl md:text-7xl mb-16">Nuestros <span class="text-primary">Servicios</span></h2>
+    
+    <div class="grid lg:grid-cols-3 gap-8">
+      {services.map(s => (
+        <div class="bg-card p-10 rounded-3xl border border-white/5 hover:border-primary/30 transition-all group relative overflow-hidden text-left">
+          <div class="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity">
+             <img src={s.img} alt="" class="h-32 w-32 object-contain" />
+          </div>
+          <div class="mb-6 h-16 w-16 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:bg-primary transition-colors">
+             <img src={s.img} alt="" class="h-8 w-8 object-contain brightness-0 invert group-hover:invert-0" />
+          </div>
+          <h3 class="title-impact text-3xl mb-4 group-hover:text-primary transition-colors">{s.title}</h3>
+          <p class="text-gray-400 text-lg leading-relaxed uppercase font-bold tracking-tighter">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

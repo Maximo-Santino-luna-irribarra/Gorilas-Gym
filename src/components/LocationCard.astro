@@ -1,0 +1,40 @@
+---
+interface Props {
+  name: string;
+  address: string;
+  hours: { day: string; time: string }[];
+  whatsapp: string;
+  instagram: string;
+  maps: string;
+}
+const { name, address, hours, whatsapp, instagram, maps } = Astro.props;
+---
+<div class="bg-card/30 backdrop-blur-xl p-10 rounded-[3rem] border border-white/10 flex flex-col h-full hover:bg-card/50 transition-all duration-500 group hover:border-primary/30 hover:shadow-[0_20px_60px_rgba(255,206,15,0.08)]">
+  <h3 class="title-impact text-4xl text-primary mb-3 leading-tight group-hover:translate-x-2 transition-transform duration-300">{name}</h3>
+  <p class="text-gray-400 font-bold text-xs uppercase tracking-[0.25em] mb-10 flex items-center gap-2 opacity-80">
+    {address}
+  </p>
+  
+  <div class="space-y-4 mb-12 flex-grow">
+    {hours.map(h => (
+      <div class="flex justify-between border-b border-white/5 pb-3 group/hour">
+        <span class="text-xs uppercase font-black text-gray-500 italic group-hover/hour:text-gray-400 transition-colors">{h.day}</span>
+        <span class="text-xs uppercase font-black text-white italic">{h.time}</span>
+      </div>
+    ))}
+  </div>
+
+  <div class="flex flex-col gap-4">
+    <a href={whatsapp} target="_blank" class="bg-primary text-black py-5 rounded-2xl title-impact text-center hover:brightness-110 hover:-translate-y-1 transition-all text-xl shadow-lg shadow-primary/10">
+      WhatsApp
+    </a>
+    <div class="grid grid-cols-2 gap-4">
+      <a href={instagram} target="_blank" class="bg-white/[0.03] hover:bg-white/[0.08] text-white py-5 rounded-2xl title-impact text-xs tracking-widest text-center transition-all border border-white/5 hover:border-white/10">
+        Instagram
+      </a>
+      <a href={maps} target="_blank" class="bg-white/[0.03] hover:bg-white/[0.08] text-white py-5 rounded-2xl title-impact text-xs tracking-widest text-center transition-all border border-white/5 hover:border-white/10">
+        Ubicación
+      </a>
+    </div>
+  </div>
+</div>

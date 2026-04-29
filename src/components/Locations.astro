@@ -1,0 +1,54 @@
+---
+import LocationCard from './LocationCard.astro';
+const sedes = [
+  {
+    name: "Gorillas Gym Vernet",
+    address: "Avenida Luis Vernet 2826, Monte Grande",
+    hours: [
+      { day: "Lun a Vie", time: "07:30 a 21:30" },
+      { day: "Sábados", time: "10:00 a 16:00" },
+      { day: "Feriados", time: "10:30 a 18:00" }
+    ],
+    whatsapp: "https://wa.me/5491139552034",
+    instagram: "https://www.instagram.com/gorillasgym.vernet/",
+    maps: "https://www.google.com/maps?q=Avenida+Luis+Vernet+2826+Monte+Grande"
+  },
+  {
+    name: "Gorillas Gym Ezeiza",
+    address: "Diego Laure 150 - Ezeiza",
+    hours: [
+      { day: "Lun a Vie", time: "07:00 a 21:30" },
+      { day: "Sábados", time: "10:00 a 17:00" },
+      { day: "Domingos", time: "15:00 a 19:30" },
+      { day: "Feriados", time: "08:00 a 19:00" }
+    ],
+    whatsapp: "https://wa.me/5491136035835",
+    instagram: "https://www.instagram.com/gorillasgym.ezeiza/",
+    maps: "https://www.google.com/maps?q=Diego+Laure+150+Ezeiza"
+  },
+  {
+    name: "Gorillas Gym Zuviria",
+    address: "Av. Vernet y Zuviria - Monte Grande",
+    hours: [
+      { day: "Lun a Vie", time: "07:00 a 22:00" },
+      { day: "Sábados", time: "10:00 a 17:00" },
+      { day: "Feriados", time: "09:00 a 18:00" }
+    ],
+    whatsapp: "https://wa.me/5491128814887",
+    instagram: "https://www.instagram.com/gorillasgym.zuviria/",
+    maps: "https://www.google.com/maps?q=Av+Vernet+y+Zuviria+Monte+Grande"
+  }
+];
+---
+<section id="sedes" class="py-32">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-20">
+      <h2 class="title-impact text-5xl md:text-8xl mb-4 italic">Elegí tu <span class="text-primary">Sede</span></h2>
+      <p class="text-gray-500 uppercase font-black tracking-widest italic">Tres ubicaciones, una sola pasión</p>
+    </div>
+    
+    <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      {sedes.map(s => <LocationCard {...s} />)}
+    </div>
+  </div>
+</section>
